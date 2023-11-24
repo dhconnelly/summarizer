@@ -13,9 +13,7 @@ async fn main() {
         .expect("invalid PORT");
     let router = summarizer::make_router(key);
     let addr = std::net::SocketAddr::from(([127, 0, 0, 1], port));
-    tracing_subscriber::fmt()
-        .with_max_level(tracing::Level::INFO)
-        .init();
+    tracing_subscriber::fmt().with_target(false).compact().init();
     tracing::info!("starting server at http://{}", addr);
     axum::Server::bind(&addr)
         .serve(router.into_make_service())
