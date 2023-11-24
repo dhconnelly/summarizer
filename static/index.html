@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>summarizer</title>
+        <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="heading">
+            <h1>Summarizer</h1>
+            <div id="subtitle">
+                what do your colleagues see when they run your wall of text through chatgpt?
+            </div>
+        </div>
+        <div id="content">
+            <form hx-post="/summarize" hx-target="#response">
+                <h2>Paste your wall of text here</h2>
+                <input type="text" id="text" name="text">
+                <button>Submit</button>
+            </form>
+            <div id="response"></div>
+        </div>
+    </body>
+</html>
